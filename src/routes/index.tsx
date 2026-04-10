@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ParticleBackground } from "@/components/ParticleBackground";
 
 export const Route = createFileRoute("/")({
   component: Index,
