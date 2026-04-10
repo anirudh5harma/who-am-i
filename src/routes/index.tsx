@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ParticleBackground } from "@/components/ParticleBackground";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -12,7 +13,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-mono">
+    <div className="min-h-screen bg-background text-foreground font-mono relative">
+      <ParticleBackground />
       <nav className="border-b border-border">
         <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
           <span className="text-foreground font-bold tracking-tight">yourname</span>
