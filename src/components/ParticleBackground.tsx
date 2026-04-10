@@ -28,7 +28,7 @@ export function ParticleBackground() {
     resize();
     window.addEventListener("resize", resize);
 
-    const count = 80;
+    const count = 140;
     const particles: Particle[] = [];
     for (let i = 0; i < count; i++) {
       particles.push({
