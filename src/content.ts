@@ -1,48 +1,48 @@
 export const content = {
-  name: "yourname",
+  name: "anirudh5harma",
 
   hero: {
-    headline: "Building software that solves real problems.",
+    headline: "Second-Order Thinking.",
     description:
-      "I'm a software engineer who cares about craft. I build clean, performant systems and ship things that work. Currently focused on web platforms, developer tools, and making complex things simple.",
+      "Hi I'm Anirudh. I build clean, performant systems and ship things that work. Currently focused on distributed systems and agentic AI.",
     tagline: "No fluff, just code.",
   },
 
   about: {
     bio: "I write code every day. I believe in shipping fast, iterating often, and keeping things simple. I'm most productive when I own the full stack — from database schema to pixel-perfect UI.",
     skills: [
-      { label: "languages", value: "TypeScript, Python, Go, Rust" },
-      { label: "tools", value: "React, Node.js, PostgreSQL, Docker, Linux" },
-      { label: "interests", value: "systems programming, open source, developer experience" },
+      { label: "languages", value: "TypeScript, Go, Python, SQL" },
+      { label: "tools", value: "React, Node.js, Gin, FastAPI, Git, Docker, Redis, Prometheus" },
+      { label: "interests", value: "Distributed systems, Agentic AI" },
     ],
   },
 
   projects: [
     {
-      title: "project-alpha",
+      title: "Distributed Job Queue",
       description:
-        "A CLI tool that does one thing really well. Built with Rust, ships as a single binary.",
-      link: "https://github.com/yourname/project-alpha",
+        "Built in Go with 2-level priority, concurrent worker pools, and rate limiting — scales horizontally to 50+ jobs/sec.",
+      link: "https://github.com/AnirudhBot/job-queue",
     },
     {
-      title: "dashkit",
+      title: "Research RAG",
       description:
-        "Real-time analytics dashboard. React, WebSockets, PostgreSQL. Handles 10k events/sec.",
-      link: "https://github.com/yourname/dashkit",
+        "Research assistant that lets users upload PDFs and receive context-aware responses via LLM-powered chat. Comes with a hybrid table extraction pipeline and multimodal image awareness.",
+      link: "https://github.com/AnirudhBot/Research_RAG",
     },
     {
-      title: "dotfiles",
+      title: "Crypto Tracker",
       description:
-        "My development environment. Neovim, tmux, zsh. Battle-tested over 3 years.",
-      link: "https://github.com/yourname/dotfiles",
+        "Real-time cryptocurrency tracking server with concurrent fan-out broadcasting, background polling and a loosely coupled, idiomatic Go backend for real-time alerts.",
+      link: "https://github.com/AnirudhBot/crypto-live",
     },
   ],
 
   contact: [
-    { label: "email", href: "mailto:you@example.com", text: "you@example.com" },
-    { label: "github", href: "https://github.com/yourname", text: "github.com/yourname" },
-    { label: "linkedin", href: "https://linkedin.com/in/yourname", text: "linkedin.com/in/yourname" },
+    { label: "email", href: "mailto:anirudh1304@gmail.com", text: "anirudh1304@gmail.com" },
+    { label: "github", href: "https://github.com/anirudh5harma", text: "github.com/anirudh5harma" },
+    { label: "linkedin", href: "https://linkedin.com/in/anirudh5harma", text: "linkedin.com/in/anirudh5harma" },
   ],
 
-  footer: "built with craft, not templates.",
+  footer: "Curious.",
 };
