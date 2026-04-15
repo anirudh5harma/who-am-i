@@ -10,26 +10,14 @@ mkdirSync(".vercel/output/static", { recursive: true });
 // Copy static client assets
 cpSync("dist/client", ".vercel/output/static", { recursive: true });
 
-// Bundle the server into a single self-contained file for the Vercel function
+// Bundle everything (server + handler adapter) into a single CJS file
+// so Vercel's Node runtime can load it without ESM config
 await build({
-  entryPoints: ["dist/server/server.js"],
-  bundle: true,
-  platform: "node",
-  target: "node22",
-  format: "esm",
-  outfile: ".vercel/output/functions/index.func/server.js",
-  external: ["node:*"],
-  // inline all npm deps so the function needs no node_modules
-  packages: "bundle",
-});
+  stdin: {
+    contents: `
+import server from "./dist/server/server.js";
 
-// Write the Vercel function entry that adapts the fetch handler to Node http
-writeFileSync(
-  ".vercel/output/functions/index.func/index.js",
-  `
-import server from "./server.js";
-
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const host = req.headers.host || "localhost";
   const protocol = req.headers["x-forwarded-proto"] || "https";
   const url = new URL(req.url, protocol + "://" + host);
@@ -55,9 +43,19 @@ export default async function handler(req, res) {
 
   const buffer = await response.arrayBuffer();
   res.end(Buffer.from(buffer));
-}
-`
-);
+};
+`,
+    resolveDir: ".",
+    loader: "js",
+  },
+  bundle: true,
+  platform: "node",
+  target: "node22",
+  format: "cjs",
+  outfile: ".vercel/output/functions/index.func/index.js",
+  external: ["node:*"],
+  packages: "bundle",
+});
 
 // Vercel function config
 writeFileSync(
