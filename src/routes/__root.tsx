@@ -26,13 +26,26 @@ function NotFoundComponent() {
   );
 }
 
+const themeScript = `
+  (function() {
+    try {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'dark' || stored === 'light') {
+        if (stored === 'dark') document.documentElement.classList.add('dark');
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  })();
+`;
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Software Engineer — Portfolio" },
-      { name: "description", content: "Software engineer building things that matter." },
+      { title: "Anirudh Sharma" },
+      { name: "description", content: "Full-stack AI engineer building products that move fast." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -53,6 +66,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
         {children}
