@@ -87,6 +87,10 @@ writeFileSync(
           src: "^/(favicon\\.ico|placeholder\\.svg|robots\\.txt)$",
           dest: "/$1",
         },
+        {
+          src: "^/fonts/(.*)$",
+          dest: "/fonts/$1",
+        },
         // Everything else -> SSR function
         {
           src: "/(.*)",

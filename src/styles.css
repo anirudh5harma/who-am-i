@@ -117,6 +117,12 @@
     overflow-x: hidden;
   }
 
+  @media (max-width: 640px) {
+    html {
+      font-size: 15px;
+    }
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
