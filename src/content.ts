@@ -3,7 +3,7 @@ export const content = {
   displayName: "Anirudh Sharma",
 
   intro:
- 	"the less i know the better.",
+ 	"i like to think, experiment and look for meaning.",
 
   projects: [
     {
@@ -13,10 +13,10 @@ export const content = {
       link: "https://www.bombsell.com",
     },
     {
-      title: "research RAG",
+      title: "rlm harness",
       description:
-        "multimodal research assistant for scientific papers. upload PDFs and get context-aware answers with hybrid table and image extraction.",
-      link: "https://github.com/anirudh5harma/Research_RAG",
+        "self-recursive coding agent that decomposes long context by spawning sub-LLM calls inside a sandboxed REPL, with persistent memory system.",
+      link: "https://github.com/anirudh5harma/rlm-harness",
     },
     {
       title: "typewriter",
