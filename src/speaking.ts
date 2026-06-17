@@ -11,7 +11,7 @@ export const upcomingEngagements: SpeakingEngagement[] = [];
 export const pastEngagements: SpeakingEngagement[] = [
   {
     conference: "JSConf Tokyo",
-    conferenceUrl: "#",
+    conferenceUrl: "https://jsconf.jp/",
     talkTitle: "JS Engine",
     date: "2023",
     location: "Tokyo, Japan",
