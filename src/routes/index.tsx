@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { content } from "@/content";
 import { useEffect, useState } from "react";
-import { Sun, Moon, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -12,34 +13,6 @@ export const Route = createFileRoute("/")({
     ],
   }),
 });
-
-function useTheme() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem("theme");
-    if (stored === "dark" || stored === "light") {
-      setTheme(stored);
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-    localStorage.setItem("theme", theme);
-  }, [theme, mounted]);
-
-  return { theme, setTheme, mounted };
-}
 
 function useAgeInSeconds(birthDateString: string) {
   const [seconds, setSeconds] = useState<number | null>(null);
@@ -57,28 +30,6 @@ function useAgeInSeconds(birthDateString: string) {
   }, [birthDateString]);
 
   return seconds;
-}
-
-function ThemeToggle() {
-  const { theme, setTheme, mounted } = useTheme();
-
-  if (!mounted) {
-    return (
-      <div className="fixed top-6 right-6 p-2 rounded-full border border-foreground/10 opacity-0">
-        <Sun size={16} />
-      </div>
-    );
-  }
-
-  return (
-    <button
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="fixed top-6 right-6 p-2 rounded-full border border-foreground/10 text-foreground hover:opacity-60 transition-opacity cursor-pointer"
-      aria-label="Toggle theme"
-    >
-      {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
-    </button>
-  );
 }
 
 function PastSection() {
@@ -145,6 +96,16 @@ function Index() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12">
+          <Link
+            to="/blog"
+            className="underline hover:opacity-70 transition-opacity"
+            style={{ fontSize: "1.2rem", lineHeight: "1.6rem" }}
+          >
+            blog
+          </Link>
         </div>
 
         <footer className="mt-16 pt-4 border-t border-foreground/10">
