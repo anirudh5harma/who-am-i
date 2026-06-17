@@ -8,4 +8,12 @@ export interface SpeakingEngagement {
 
 export const upcomingEngagements: SpeakingEngagement[] = [];
 
-export const pastEngagements: SpeakingEngagement[] = [];
+export const pastEngagements: SpeakingEngagement[] = [
+  {
+    conference: "JSConf Tokyo",
+    conferenceUrl: "#",
+    talkTitle: "JS Engine",
+    date: "2023",
+    location: "Tokyo, Japan",
+  },
+];
