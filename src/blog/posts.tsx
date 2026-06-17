@@ -113,7 +113,7 @@ const scalableRestApisPost: BlogPost = {
     <PostLayout>
       <PostHeader
         title="Building Scalable REST APIs in Go"
-        date="2026-06-17"
+        date="2026-05-13"
       />
 
       <Paragraph>
