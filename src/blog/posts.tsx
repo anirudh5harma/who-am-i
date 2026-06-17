@@ -106,7 +106,7 @@ function Li({ children }: { children: React.ReactNode }) {
 const scalableRestApisPost: BlogPost = {
   slug: "scalable-rest-apis-in-go",
   title: "Building Scalable REST APIs in Go",
-  date: "2026-06-17",
+  date: "2026-05-13",
   excerpt:
     "A practical guide to structuring, building, and deploying production-ready REST APIs in Go that can grow with your product.",
   content: (
