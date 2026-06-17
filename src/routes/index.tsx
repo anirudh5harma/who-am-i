@@ -98,13 +98,20 @@ function Index() {
           ))}
         </div>
 
-        <div className="mt-12">
+        <div className="mt-12 flex gap-6">
           <Link
             to="/blog"
             className="underline hover:opacity-70 transition-opacity"
             style={{ fontSize: "1.2rem", lineHeight: "1.6rem" }}
           >
             blog
+          </Link>
+          <Link
+            to="/speaking"
+            className="underline hover:opacity-70 transition-opacity"
+            style={{ fontSize: "1.2rem", lineHeight: "1.6rem" }}
+          >
+            speaking
           </Link>
         </div>
 
