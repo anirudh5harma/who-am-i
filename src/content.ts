@@ -28,11 +28,10 @@ export const content = {
 
   interests: [
     "agent harness",
-    "memory",
-    "data and evals",
+    "evals",
+    "GTM",
     "travelling",
     "swimming",
-    "psychedelic",
   ],
 
   past: {
