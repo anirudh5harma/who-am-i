@@ -9,7 +9,7 @@ export const content = {
     {
       title: "bombsell",
       description:
-        "building the future of GTM stack. whether an ai agent or a human, pay for outcomes not seats. voice and remote control inbuilt.",
+        "building the future of GTM stack starting with autonomous outbound. mcp support and voice assistant inbuilt.",
       link: "https://www.bombsell.com",
     },
     {
@@ -28,9 +28,9 @@ export const content = {
 
   interests: [
     "agent harness",
-    "evals",
-    "GTM",
-    "travelling",
+    "automations",
+    "gtm",
+    "hiking",
     "swimming",
   ],
 
