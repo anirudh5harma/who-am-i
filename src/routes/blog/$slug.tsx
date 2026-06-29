@@ -22,12 +22,18 @@ export const Route = createFileRoute("/blog/$slug")({
     if (!post) {
       throw notFound();
     }
-    return { post };
+    return { slug: post.slug };
   },
 });
 
 function BlogPost() {
-  const { post } = Route.useLoaderData();
+  const { slug } = Route.useLoaderData();
+  const post = getPostBySlug(slug);
+
+  if (!post) {
+    throw notFound();
+  }
+
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <ThemeToggle />
