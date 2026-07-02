@@ -59,6 +59,32 @@ function Sidebar() {
           {content.name}
         </Link>
       </div>
+      <section className="mb-8" aria-labelledby="oss-heading">
+        <h2
+          id="oss-heading"
+          className="mb-3 font-semibold text-heading-accent"
+          style={{ fontSize: "1.1rem", lineHeight: "1.5rem" }}
+        >
+          oss
+        </h2>
+        <ul className="space-y-4">
+          {content.openSource.map((contribution) => (
+            <li key={contribution.project}>
+              <a
+                href={contribution.pullRequest}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:opacity-70 transition-opacity"
+              >
+                {contribution.project}
+              </a>
+              <p className="mt-1 line-clamp-2 text-sm leading-5 text-muted-foreground">
+                {contribution.description}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
       <ul className="space-y-2">
         <li>
           <Link

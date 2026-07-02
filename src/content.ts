@@ -39,6 +39,27 @@ export const content = {
     education: "delhi college of engineering '24",
   },
 
+  openSource: [
+    {
+      project: "agent-orchestrator",
+      description:
+        "added Codex and OpenCode reviewer harnesses with read-only controls, settings support, and end-to-end coverage.",
+      pullRequest: "https://github.com/AgentWrapper/agent-orchestrator/pull/2306",
+    },
+    {
+      project: "supermemory",
+      description:
+        "fixed social URL classification by matching parsed hostnames, with regression tests for spoofed domains.",
+      pullRequest: "https://github.com/supermemoryai/supermemory/pull/1174",
+    },
+    {
+      project: "greplica",
+      description:
+        "added repo-context regression coverage for branch discovery, remote fallbacks, and repository URL parsing.",
+      pullRequest: "https://github.com/Autoloops/greplica/pull/59",
+    },
+  ],
+
   contact: [
     { label: "email", href: "mailto:anirudh1304@gmail.com", text: "email" },
     { label: "github", href: "https://github.com/anirudh5harma", text: "github" },
