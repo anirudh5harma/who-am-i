@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SpeakingIndexRouteImport } from './routes/speaking/index'
+import { Route as OssIndexRouteImport } from './routes/oss/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const SpeakingIndexRoute = SpeakingIndexRouteImport.update({
   id: '/speaking/',
   path: '/speaking/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OssIndexRoute = OssIndexRouteImport.update({
+  id: '/oss/',
+  path: '/oss/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/oss/': typeof OssIndexRoute
   '/speaking/': typeof SpeakingIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/oss': typeof OssIndexRoute
   '/speaking': typeof SpeakingIndexRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/oss/': typeof OssIndexRoute
   '/speaking/': typeof SpeakingIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog/$slug' | '/blog/' | '/speaking/'
+  fullPaths: '/' | '/blog/$slug' | '/blog/' | '/oss/' | '/speaking/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog/$slug' | '/blog' | '/speaking'
-  id: '__root__' | '/' | '/blog/$slug' | '/blog/' | '/speaking/'
+  to: '/' | '/blog/$slug' | '/blog' | '/oss' | '/speaking'
+  id: '__root__' | '/' | '/blog/$slug' | '/blog/' | '/oss/' | '/speaking/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  OssIndexRoute: typeof OssIndexRoute
   SpeakingIndexRoute: typeof SpeakingIndexRoute
 }
 
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/speaking'
       fullPath: '/speaking/'
       preLoaderRoute: typeof SpeakingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oss/': {
+      id: '/oss/'
+      path: '/oss'
+      fullPath: '/oss/'
+      preLoaderRoute: typeof OssIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -106,6 +123,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  OssIndexRoute: OssIndexRoute,
   SpeakingIndexRoute: SpeakingIndexRoute,
 }
 export const routeTree = rootRouteImport
